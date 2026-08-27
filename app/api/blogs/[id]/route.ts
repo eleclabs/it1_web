@@ -74,10 +74,7 @@ export async function PUT(request: Request, context: RouteContext) {
   }
 }
 
-export async function DELETE(
-  _request: Request,
-  context: RouteContext,
-) {
+export async function DELETE( _request: Request, context: RouteContext,) {
   try {
     const { id } = await context.params;
 
