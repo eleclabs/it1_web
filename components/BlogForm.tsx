@@ -62,7 +62,6 @@ export default function BlogForm() {
         }
     }
 
-
     return (
         <div className="page">
             <div className="card">
