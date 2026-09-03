@@ -16,35 +16,9 @@ interface ProductCardProps {
   };
 }
 
-type ProductCardData = {
-    _id: string;
-    name: string;
-    description: string;
-    price: number;
-    stock: number;
-    imageUrl: string;
-    category?: {
-      _id: string;
-      name: string;
-    };
-};
-
 export default function ProductCard({
   product,
 }: ProductCardProps) {
-      const safeProduct: ProductCardData = product ?? {
-           _id: "",
-           name: "",
-           description: "",
-           price: 0,
-           stock: 0,
-           imageUrl: "",
-           category: {
-             _id: "",
-             name: "",
-           },
-       };
-
   return (
     <article className="overflow-hidden rounded-xl border bg-white shadow-sm transition hover:shadow-md">
       <div className="relative aspect-square w-full bg-gray-100">
@@ -67,14 +41,15 @@ export default function ProductCard({
             {product.category.name}
           </p>
         )}
-        <Link
+
+  <Link
           href={safeProduct._id ? `/products/${safeProduct._id}` : "#"}
           className="group"
         >
-          <h2 className="text-lg font-semibold">
-            {product.name}
-          </h2>
-        </Link>
+        <h2 className="text-lg font-semibold">
+          {product.name}
+        </h2>
+</Link>
         <p className="line-clamp-2 text-sm text-gray-600">
           {product.description}
         </p>
